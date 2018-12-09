@@ -1,0 +1,83 @@
+{
+	"directories": {
+		"basePath": "./",
+		"webPath": "./",
+		"css": "./dist/css",
+		"sass": "./sass",
+		"cssSourceMaps": "./SourceMaps",
+		"javascriptSrc": "./js",
+		"javascriptDest": "./dist/js",
+		"javascriptSourceMaps": "./SourceMaps",
+		"images": "./img",
+		"sprites": "./img/sprites",
+		"svg": "./img/icons"
+	},
+	"abovethefold": [
+		{
+			"template": "web/typo3conf/ext/project_theme/Resources/Private/Templates/Abovethefold/Src/PageRenderTemplate.html",
+			"dest": "web/typo3conf/ext/project_theme/Resources/Private/Templates/Abovethefold/Dist/"
+		}
+	],
+	"js": {
+		"excludeFromQa": [],
+		"pipeline": {
+			"dev": {
+				"uglify": false,
+				"renameToDotMin": true,
+				"polyfills": true,
+				"qa": true,
+				"sourceMaps": true
+			},
+			"prod": {
+				"uglify": true,
+				"renameToDotMin": true,
+				"polyfills": true,
+				"qa": false,
+				"sourceMaps": false
+			}
+		}
+	},
+	"css": {
+		"excludeFromQa": [
+			"!**/_svg.scss"
+		],
+		"pipeline": {
+			"dev": {
+				"cleanCss": false,
+				"renameToDotMin": true,
+				"qa": true,
+				"sourceMaps": true
+			},
+			"prod": {
+				"cleanCss": true,
+				"renameToDotMin": true,
+				"qa": false,
+				"sourceMaps": false
+			}
+		},
+		"svgIconPrefix": "icon-"
+	},
+	"supportedBrowsers": [
+		"> 2%",
+		"ie 11"
+	],
+	"images": {
+		"optimize": [
+			"web/fileadmin",
+			"web/uploads"
+		]
+	},
+	"extensions": [
+		""
+	],
+	"logMessages": {
+		"imagesSuccess:uploaded": {
+			"level": "error",
+			"message": "Please make sure to clear the TYPO3 cache now, image hashes might have changed. Also make sure to run this command again after a few days."
+		}
+	},
+	"browsersync": {
+		"server": "./dist"
+	},
+	"license": "xxxxxx-xxxxxx-xxxxxx-xxxxxx"
+}
